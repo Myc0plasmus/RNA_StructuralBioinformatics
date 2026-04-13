@@ -6,6 +6,7 @@ let
     targetPkgs = _: [
       pkgs.jupyter
       pkgs.micromamba
+      pkgs.cd-hit
     ];
 
     profile = ''
@@ -37,6 +38,7 @@ let
       micromamba activate ${name}
 
       # exec jupyter lab
+      pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
       
       set +e
     '';
